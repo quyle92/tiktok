@@ -5,7 +5,7 @@ function App() {
     age: 10,
     fruit: 'banana'
   });
-  var [count, setCount] = useState(0)
+  const [count, setCount] = useState(0)
   const handleIncrease = () => {
     setState((prevState) => {
       return {
@@ -28,9 +28,6 @@ function App() {
       const a = ++count;
       return a;
     });//!this will make count and setCount() have same value => not trigger re-render.
-
-
-
   }
 
   return (
