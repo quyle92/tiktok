@@ -3,15 +3,18 @@ import _find from 'lodash/find';
 
 const tabs = ['posts', 'comments', 'albums'];
 var tabData = [];
+const lessons = [{ id: 1, title: 'what is Reactjs?' }, { id: 2, title: 'Why should we learn React?' }, { id: 3, title: 'What is arrow function?'}];
 
-function Content() {
+function UseEffectContent() {
     const [title, setTitle] = useState('');
     const [data, setData] = useState([]);
     const [tabSelected, setTabSelected] = useState('posts');
     const [isShown, setIsShown] = useState(false);
+    console.log('render')
 
     //** useEffect with dependency */
     useEffect(() => {
+        console.log('useEffect')
         //get tab name from tabData array.
         const tabNames = tabData.map(function (obj) {
             return Object.getOwnPropertyNames(obj)[0]
@@ -63,32 +66,76 @@ function Content() {
     }, []);//need to pass [] here as dependency, else cb will run every time the component gets re-rendered, which means setInterval and clearInterval will get called repeatedly.
 
     //*useEffect() with preview avatar **//
-    const [avatar, setAvatar] = useState();
+    const [avatars, setAvatars] = useState([]);
     useEffect(() => {
         return () => {
-            console.log("🚀 ~ avatar", avatar)
-            if(avatar) {
-                setTimeout(function () { window.URL.revokeObjectURL(avatar.preview); }, 0);
-
+            if (avatars.length > 0) {
+                avatars.forEach(avatar => {
+                    URL.revokeObjectURL(avatar.preview);
+                })
             }
         }
-    }, [avatar]);
+    }, [avatars]);
     const handlePreviewAvatar = (e) => {
-        console.log("🚀 ~ handlePreviewAvatar", handlePreviewAvatar)
-        const file = e.target.files[0];
-        file.preview = window.URL.createObjectURL(file)
-        setAvatar(file);
+        const files = e.target.files;
+        let avatars = []
+        for (const file of files) {
+            file.preview = URL.createObjectURL(file);
+            avatars.push(file);
+        }
+        setAvatars(avatars);
     }
+
+    //**useEffect() with fake Chat App*/
+    const [lessonId, setLessonId] = useState();
+    useEffect(() => {
+        const handleComment = (e) => {
+            console.log(e.detail)
+        }
+        window.addEventListener(`lesson-${lessonId}`, handleComment);
+
+        return () => {
+            window.removeEventListener(`lesson-${lessonId}`, handleComment);
+        }
+
+    },[lessonId])
 
     return (
         <div>
+            {/*useEffect() with fake Chat App*/}
+            <ul>
+                {
+                    lessons.map((lesson, index) => {
+                        return <li
+                            key={index}
+                            style={{
+                                color: lesson.id === lessonId ? 'red' : '#333'
+                            }}
+                            onClick={() => setLessonId(lesson.id)}
+                        >
+                            {lesson.title}
+                        </li>
+                    })
+                }
+            </ul>
+
+            {/** useEffect() with preview avatar */}
             <input
                 type="file"
                 onChange={handlePreviewAvatar}
+                multiple
             />
-            <img src={avatar && avatar.preview} width="10%" />
+            {
+                avatars.length > 0 && avatars.map((avatar, index) => {
+                    return <img
+                        key={index}
+                        src={avatar.preview} width="10%"
+                    />
+                })
+
+            }
             <hr />
-             {/** useEffect() with timer functions */}
+            {/** useEffect() with timer functions */}
             {countdown}
             <button onClick={() => setCountdown(countdown - 1)}>Click here</button>
             <div>
@@ -97,7 +144,7 @@ function Content() {
                 />
             </div>
             <hr />
-             {/** useEffect with dependency */}
+            {/** useEffect with dependency */}
             {
                 tabs.map(tab => {
                     return <button
@@ -131,12 +178,12 @@ function Content() {
     )
 }
 
-export default Content;
+export default UseEffectContent;
 
 /** Note
 // Events: Add / remove event listener.
 // Observer pattern: subscribe/ unsubscribe.
-// Clousre.
+// Clousure.
 // Timers: setTimeout, clearTimeout, clearInterval, setInterval.
 // useState()
 // Mounted/ unmounted
