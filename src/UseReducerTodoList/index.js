@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useReducer, useMemo, memo, useCallb
 import { SET_JOB, ADD_JOB, DELETE_JOB } from './constants'
 import reducer, { initialState } from './reducer'
 import logger from './logger'
-import Todo from './todo'
+import Todo from './Todo'
 
 export default function UseReducerToDoList() {
     const [state, dispatch] = useReducer(logger(reducer), initialState);
@@ -16,12 +16,12 @@ export default function UseReducerToDoList() {
             <ul>
                 {
                     jobs.map((item, index) => {
-                        return (
-                            <li key={index}>
-                                {item}
-                                <button onClick={() => dispatch({ type: DELETE_JOB, payload: index })}>x</button>
-                            </li>
-                        )
+                        return <Todo
+                                    key={index}
+                                    item={item}
+                                    index={index}
+                                    dispatch={dispatch}
+                                />
                     })
                 }
             </ul>

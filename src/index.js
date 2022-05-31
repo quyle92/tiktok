@@ -15,7 +15,9 @@ import UseCallback from './UseCallback';
 import UseReducer from './UseReducer';
 // import UseReducerToDoList from './UseReducerToDoList';
 import UseReducerToDoList from './UseReducerTodoList/index';
-
+import UseContext from './UseContext/index';
+import ThemeProvider from './UseContext/ThemeContext';
+import UseContextUseReducerTodoApp from './UseContextUseReducerTodoApp';
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
 //   <React.StrictMode>
@@ -23,7 +25,16 @@ import UseReducerToDoList from './UseReducerTodoList/index';
 //   </React.StrictMode>
 // );
 
-ReactDOM.render(<UseReducerToDoList />, document.getElementById('root'))
+// ReactDOM.render(
+//         <UseContextUseReducerTodoApp />
+//     , document.getElementById('root')
+// )
+ReactDOM.render(
+    <React.StrictMode>
+        <UseContextUseReducerTodoApp />
+    </React.StrictMode>
+    , document.getElementById('root')
+)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
