@@ -1,5 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';//react 17
+import ReactDOM from 'react-dom/client';//react 18
+import { BrowserRouter as Router } from "react-router-dom";
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
@@ -18,23 +20,32 @@ import UseReducerToDoList from './UseReducerTodoList/index';
 import UseContext from './UseContext/index';
 import ThemeProvider from './UseContext/ThemeContext';
 import UseContextUseReducerTodoApp from './UseContextUseReducerTodoApp';
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
-// );
+import { default as UseImperativeHandle } from './UseImperativeHandle/App';
+import { default as CustomHook } from './CustomHook/App';
+import { default as UseTransition } from './UseTransition/App';
+import { default as CSSModule } from './CSSModule/App';
+import { default as ReactRouter } from './ReactRouter/App';
+const root = ReactDOM.createRoot(document.getElementById('root'));
+//react 18
+root.render(
+  <React.StrictMode>
+    <Router>
+      <ReactRouter />
+    </Router>
+  </React.StrictMode>
+);
 
+// react 17
 // ReactDOM.render(
 //         <UseContextUseReducerTodoApp />
 //     , document.getElementById('root')
 // )
-ReactDOM.render(
-    <React.StrictMode>
-        <UseContextUseReducerTodoApp />
-    </React.StrictMode>
-    , document.getElementById('root')
-)
+// ReactDOM.render(
+//     <React.StrictMode>
+//         <UseTransition />
+//     </React.StrictMode>
+//     , document.getElementById('root')
+// )
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
