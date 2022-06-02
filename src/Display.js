@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 function Display(props) {
     const [weatherInfo, setWeatherInfo] = useState([]);
@@ -11,7 +11,7 @@ function Display(props) {
     };
     // eslint-disable-next-line
     useEffect(async () => {
-        console.log('useEffect')
+        console.log('useEffect');
         getWeatherInfo();
     }, [props.placeName]);
 

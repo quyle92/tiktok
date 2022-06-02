@@ -1,18 +1,17 @@
-import { SET_JOB, ADD_JOB } from './constants'
+import { SET_JOB, ADD_JOB } from './constants';
 
 const initState = {
     todoInput: '',
-    todos: []
-}
+    todos: [],
+};
 
 export default function reducer(prevState, action) {
-
     switch (action.type) {
         case SET_JOB:
             return {
                 ...prevState,
-                todoInput: action.payload
-            }
+                todoInput: action.payload,
+            };
 
         case ADD_JOB:
             /**!THIS IS WRONG IN STRICT MODE */
@@ -30,14 +29,13 @@ export default function reducer(prevState, action) {
             action.payload.inputEl.current.focus();
             const obj = {
                 ...prevState,
-                todos: [...prevState.todos, action.payload.todoInput]
-            }
-            return obj
+                todos: [...prevState.todos, action.payload.todoInput],
+            };
+            return obj;
 
         default:
-            throw new Error("action type is wrong!")
+            throw new Error('action type is wrong!');
     }
 }
 
-export { initState }
-
+export { initState };

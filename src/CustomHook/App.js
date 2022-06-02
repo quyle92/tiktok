@@ -4,13 +4,10 @@ import useUpdateLogger from './useUpdateLogger';
 
 export default function App() {
     const [name, setName] = useLocalStorage('data');
-    useUpdateLogger(name)
+    useUpdateLogger(name);
     return (
         <>
-            <input
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-            />
+            <input value={name} onChange={(e) => setName(e.target.value)} />
         </>
-    )
+    );
 }

@@ -1,5 +1,5 @@
-import React, { useState, useEffect} from 'react';
-import UseRefContent from './UseRefContent'
+import React, { useState, useEffect } from 'react';
+import UseRefContent from './UseRefContent';
 export default function UseRef() {
     const [isShow, setShow] = useState(true);
 
@@ -8,5 +8,5 @@ export default function UseRef() {
             <button onClick={() => setShow(!isShow)}> Toggle</button>
             {isShow && <UseRefContent />}
         </div>
-    )
+    );
 }

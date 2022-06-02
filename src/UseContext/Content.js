@@ -5,5 +5,5 @@ export default function Content() {
         <div>
             <Paragraph />
         </div>
-    )
+    );
 }

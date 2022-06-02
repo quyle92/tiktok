@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 function Navbar(props) {
-    const [input, setInput] = useState("");
+    const [input, setInput] = useState('');
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">

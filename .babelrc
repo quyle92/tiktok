@@ -1,0 +1,23 @@
+{
+    "presets": [
+        "babel-preset-react-app"
+    ],
+    "plugins": [
+        [
+            "module-resolver",
+            {
+                "alias": {
+                    "~": "./src/tiktok-ui"
+                }
+            }
+        ],
+        [
+            "macros",
+            {
+                "fontawesome-svg-core": {
+                    "license": "free"
+                }
+            }
+        ]
+    ]
+}

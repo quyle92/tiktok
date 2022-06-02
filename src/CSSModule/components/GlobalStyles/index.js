@@ -1,6 +1,5 @@
-import './GlobalStyles.css'
+import './GlobalStyles.css';
 
-export default function GlobalStyles({children}) {
-
-    return children
+export default function GlobalStyles({ children }) {
+    return children;
 }

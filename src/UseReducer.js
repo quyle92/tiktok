@@ -1,4 +1,4 @@
-import {useReducer} from 'react';
+import { useReducer } from 'react';
 
 const initState = 0;
 const UP_ACTION = 'up';
@@ -13,9 +13,9 @@ const reducer = (state, action) => {
             return state - 1;
             break;
         default:
-           throw new Error(`Invalid action`)
+            throw new Error(`Invalid action`);
     }
-}
+};
 
 export default function UseReducer() {
     const [count, dispatch] = useReducer(reducer, initState);
@@ -26,5 +26,5 @@ export default function UseReducer() {
             <button onClick={() => dispatch(UP_ACTION)}>Up</button>
             <button onClick={() => dispatch(DOWN_ACTION)}>Down</button>
         </>
-    )
+    );
 }

@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-
-
 function TodoList() {
     const [job, setJob] = useState('');
     const [jobs, setJobs] = useState(() => {
@@ -17,53 +15,51 @@ function TodoList() {
                 jobs.splice(jobEditIndex, 1, job);
                 setJobs(jobs);
                 setJobEditIndex();
-                localStorage.setItem('jobs', JSON.stringify(jobs))
+                localStorage.setItem('jobs', JSON.stringify(jobs));
             } else {
                 //add new job
                 setJobs((prev) => {
                     const newJobs = [...prev, job];
-                    localStorage.setItem('jobs', JSON.stringify(newJobs))
+                    localStorage.setItem('jobs', JSON.stringify(newJobs));
                     return newJobs;
                 });
             }
 
-            setJob('')
+            setJob('');
         }
-    }
+    };
     const removeJob = (index) => {
         setJobs((prev) => {
             prev.splice(index, 1);
-            localStorage.setItem('jobs', JSON.stringify(prev))
+            localStorage.setItem('jobs', JSON.stringify(prev));
             return [...prev];
         });
-    }
+    };
 
     const editJob = (index) => {
         const job = jobs.find((job, i) => index === i);
         setJob(job);
         setJobEditIndex(index);
-    }
+    };
     return (
         <div style={{ padding: 32 }}>
             <input onKeyDown={submitJob} onChange={(event) => setJob(event.target.value)} value={job} />
             <p>Job:</p>
             <ul>
-                {
-                    jobs.map((job, index) => {
-                        return (
-                            <div key={index}>
-                                <li>
-                                    {job}
-                                    <button onClick={() => removeJob(index)}>x</button>
-                                    <button onClick={() => editJob(index)}>edit</button>
-                                </li>
-                            </div>
-                        )
-                    })
-                }
+                {jobs.map((job, index) => {
+                    return (
+                        <div key={index}>
+                            <li>
+                                {job}
+                                <button onClick={() => removeJob(index)}>x</button>
+                                <button onClick={() => editJob(index)}>edit</button>
+                            </li>
+                        </div>
+                    );
+                })}
             </ul>
         </div>
-    )
+    );
 }
 
 export default TodoList;

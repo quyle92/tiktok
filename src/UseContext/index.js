@@ -1,6 +1,6 @@
 import ThemeProvider, { useThemeUpdate } from './ThemeContext';
-import React, { useState, useEffect, useRef, useReducer, useMemo, memo, useCallback, useContext } from "react";
-import Content from './Content'
+import React, { useState, useEffect, useRef, useReducer, useMemo, memo, useCallback, useContext } from 'react';
+import Content from './Content';
 require('./App.css');
 
 export default function App() {
@@ -8,7 +8,7 @@ export default function App() {
         <ThemeProvider>
             <UseContext />
         </ThemeProvider>
-    )
+    );
 }
 
 function UseContext() {
@@ -18,6 +18,5 @@ function UseContext() {
             <button onClick={toggleTheme}>Toggle theme</button>
             <Content></Content>
         </div>
-
-    )
+    );
 }

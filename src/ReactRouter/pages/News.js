@@ -3,5 +3,5 @@ export default function News() {
         <>
             <h1>News Page</h1>
         </>
-    )
+    );
 }

@@ -18,8 +18,7 @@ import React, { useState, useEffect, useLayoutEffect } from 'react';
 export default function UseLayoutEffect() {
     const [count, setCount] = useState(0);
     useLayoutEffect(() => {
-        if (count > 3)
-            setCount(0)
+        if (count > 3) setCount(0);
     });
 
     return (
@@ -27,11 +26,11 @@ export default function UseLayoutEffect() {
             <p>{count}</p>
             <button
                 onClick={() => {
-                    setCount(count + 1)
+                    setCount(count + 1);
                 }}
             >
                 Click me!
             </button>
         </div>
-    )
+    );
 }

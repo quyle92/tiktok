@@ -1,7 +1,7 @@
 import React from 'react';
 // import ReactDOM from 'react-dom';//react 17
-import ReactDOM from 'react-dom/client';//react 18
-import { BrowserRouter as Router } from "react-router-dom";
+import ReactDOM from 'react-dom/client'; //react 18
+import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
@@ -25,14 +25,15 @@ import { default as CustomHook } from './CustomHook/App';
 import { default as UseTransition } from './UseTransition/App';
 import { default as CSSModule } from './CSSModule/App';
 import { default as ReactRouter } from './ReactRouter/App';
+import { default as TikTokUI } from '~/App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 //react 18
 root.render(
   <React.StrictMode>
     <Router>
-      <ReactRouter />
+      <TikTokUI />
     </Router>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 
 // react 17

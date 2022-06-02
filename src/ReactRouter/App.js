@@ -1,7 +1,7 @@
-import { Routes, Route, Link } from "react-router-dom";
-import HomePage from './pages/Home'
-import NewsPage from './pages/News'
-import ContactPage from './pages/Contact'
+import { Routes, Route, Link } from 'react-router-dom';
+import HomePage from './pages/Home';
+import NewsPage from './pages/News';
+import ContactPage from './pages/Contact';
 
 export default function App() {
     return (
@@ -26,5 +26,5 @@ export default function App() {
                 <Route path="contact" element={<ContactPage />} />
             </Routes>
         </div>
-    )
+    );
 }

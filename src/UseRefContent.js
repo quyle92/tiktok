@@ -6,32 +6,32 @@ export default function UseRefContent() {
 
     const handleStart = () => {
         timerId.current = setInterval(() => {
-            setCount(pre => pre + 1);
+            setCount((pre) => pre + 1);
         }, 1000);
-    }
+    };
     const handleStop = () => {
         clearTimeout(timerId.current);
-    }
+    };
 
     useEffect(() => {
         return () => {
             clearTimeout(timerId.current);
-        }
-    },[]);
+        };
+    }, []);
 
     const preCount = useRef();
     useEffect(() => {
-        preCount.current = count
-        console.log("🚀 ~ preCount count", preCount.current)
+        preCount.current = count;
+        console.log('🚀 ~ preCount count', preCount.current);
     }, [count]);
-    console.log('count, preCount:::', count, preCount)
+    console.log('count, preCount:::', count, preCount);
     return (
         <div>
             <p>{count}</p>
             <button onClick={handleStart}>Start</button>
             <button onClick={handleStop}>Stop</button>
         </div>
-    )
+    );
 
     // const inputEl = useRef(null);
     // const onButtonClick = () => {

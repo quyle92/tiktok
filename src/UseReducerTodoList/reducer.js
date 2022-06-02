@@ -2,11 +2,11 @@ import { SET_JOB, ADD_JOB, DELETE_JOB } from './constants';
 
 export const initialState = {
     job: '',
-    jobs: []
+    jobs: [],
 };
 const reducer = (state, action) => {
     if (action.type === SET_JOB) {
-        const job = action.payload
+        const job = action.payload;
         return { ...state, job };
     }
 
@@ -22,5 +22,5 @@ const reducer = (state, action) => {
         state.jobs.splice(action.payload, 1);
         return { ...state };
     }
-}
+};
 export default reducer;

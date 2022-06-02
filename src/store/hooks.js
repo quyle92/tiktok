@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useReducer, useMemo, memo, useCallback, useContext} from "react";
+import React, { useState, useEffect, useRef, useReducer, useMemo, memo, useCallback, useContext } from 'react';
 import StoreContext from './Context';
 
 export function useProvider() {
