@@ -1,23 +1,20 @@
 import React, { useState, useEffect, useRef, useReducer, useMemo, memo, useCallback, useContext, useImperativeHandle, forwardRef, useTransition } from "react";
-import Tippy from '@tippyjs/react/headless';
+import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 import styles from './Menu.module.scss';
 import { default as PopperWrapper } from '../Wrapper';
 import MenuItem from './MenuItem';
 import Header from './Header';
-import { unstable_HistoryRouter } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
 function Menu({ menuItems = [], children }) {
     const [history, setHistory] = useState([{ data: menuItems }]);
     const current = history[history.length - 1];
-
     return (
-        <Tippy
+        <HeadlessTippy
             interactive
             delay={[0, 200]}
-            visible
             placement={'top-end'}
             render={(attrs, content, instance) => {
                 return (
@@ -38,7 +35,6 @@ function Menu({ menuItems = [], children }) {
                                             key={index}
                                             data={menuItem}
                                             onClick={() => {
-                                                console.log(menuItem.title)
                                                 const hasChildren = !!menuItem.children;
                                                 if (hasChildren) {
                                                     setHistory(prev => [
@@ -63,10 +59,13 @@ function Menu({ menuItems = [], children }) {
                 )
             }
             }
+            onHidden={(instance) => {
+                setHistory(prev => prev.slice(0, 1))
+            }}
         >
             {children}
-        </ Tippy >
+        </HeadlessTippy>
     );
 }
 
-export default Menu;
+export default memo(Menu);

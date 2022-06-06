@@ -7,7 +7,6 @@ import Profile from './pages/Profile';
 import Search from './pages/Search';
 import { DefaultLayout, HeaderOnly } from '~/components/Layout/'
 import { publicRoutes, privateRoutes } from './routes';
-
 export default function App() {
     return (
         <GlobalStyles>

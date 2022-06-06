@@ -5,11 +5,12 @@ import Header from "./Header";
 const cx = classNames.bind(styles);
 
 function MenuItem({ data, onClick }) {
-
     return (<>
         <Button
             text
-            className={cx('menu-item')}
+            className={cx('menu-item', {
+                separate: data.separate
+            })}
             leftIcon={data.icon}
             onClick={onClick}
             to={data.to}

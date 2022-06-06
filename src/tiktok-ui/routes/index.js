@@ -17,7 +17,7 @@ export const publicRoutes = [
         layout: DefaultLayout
     },
     {
-        path: '/profile',
+        path: '/@:nickname',
         component: Profile,
         layout: HeaderOnly
     },

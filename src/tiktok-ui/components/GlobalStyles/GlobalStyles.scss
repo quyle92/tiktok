@@ -19,7 +19,49 @@ html {
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'ProximaNova', sans-serif;
     font-size: 1.6rem;
     text-rendering: optimizeSpeed;
+}
+
+//Fonts embeded
+@font-face {
+    font-family: "ProximaNova";
+    src: url('/tiktok-ui/assets/fonts/Proxima-Nova-Bold.woff2');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "ProximaNova";
+    src: url('/tiktok-ui/assets/fonts/Proxima-Nova-Regular.woff2');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "ProximaNova";
+    src: url('/tiktok-ui/assets/fonts/Proxima-Nova-Semibold.woff2');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "SofiaPro";
+    src: url('/tiktok-ui/assets/fonts/sofiapro-bold.woff2');
+    font-weight: 400;
+}
+
+//custom tippy tooltip
+body {
+    .tippy-box {
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 22px;
+        background-color: rgba(84, 84, 84, 0.92);
+        color: rgb(255, 255, 255);
+
+        .tippy-arrow {
+            color: rgba(84, 84, 84, 0.92);
+            border: none;
+        }
+    }
 }
