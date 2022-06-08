@@ -1,4 +1,4 @@
-import { SET_JOB, ADD_JOB } from './constants';
+import { SET_JOB, ADD_JOB, REMOVE_JOB } from './constants';
 
 const initState = {
     todoInput: '',
@@ -27,11 +27,20 @@ export default function reducer(prevState, action) {
             // return newState;
 
             action.payload.inputEl.current.focus();
-            const obj = {
+
+            return {
                 ...prevState,
                 todos: [...prevState.todos, action.payload.todoInput],
             };
-            return obj;
+
+        case REMOVE_JOB:
+            // eslint-disable-next-line no-case-declarations
+            const newTodos = [...prevState.todos];
+            newTodos.splice(action.payload, 1);
+            return {
+                ...prevState,
+                todos: newTodos,
+            };
 
         default:
             throw new Error('action type is wrong!');

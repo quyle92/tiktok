@@ -8,10 +8,8 @@ const reducer = (state, action) => {
     switch (action) {
         case UP_ACTION:
             return state + 1;
-            break;
         case DOWN_ACTION:
             return state - 1;
-            break;
         default:
             throw new Error(`Invalid action`);
     }

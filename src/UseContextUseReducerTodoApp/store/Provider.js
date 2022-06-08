@@ -1,7 +1,7 @@
 import { useContext, useReducer } from 'react';
 import Context from './Context';
 import reducer, { initState } from './reducer';
-import { logger } from '../store';
+import { logger } from './logger';
 
 export default function Provider({ children }) {
     const [state, dispatch] = useReducer(reducer, initState);

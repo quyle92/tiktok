@@ -1,14 +1,19 @@
 import React, { useState, useEffect, useRef, useReducer, useMemo, memo, useCallback, useContext } from 'react';
-import { StoreProvider, actions, useProvider } from '../store';
+import { StoreProvider, actions, useProvider } from './store';
 
 function Todo() {
     const [state, dispatch] = useProvider();
     const { todoInput, todos } = state;
     const inputEl = useRef();
 
+    // eslint-disable-next-line no-debugger
     return (
         <div>
-            <input value={todoInput} onChange={(e) => dispatch(actions.setTodoInput(e.target.value))} ref={inputEl} />
+            <input
+                value={todoInput}
+                onChange={(e) => dispatch(actions.setTodoInput(e.target.value))}
+                ref={inputEl}
+            />
             <button
                 onClick={() => {
                     dispatch(actions.addTodoItem({ todoInput, inputEl }));
@@ -19,7 +24,17 @@ function Todo() {
             </button>
             <ul>
                 {todos.map((todo, index) => {
-                    return <li key={index}>{todo}</li>;
+                    return (
+                        <li key={index}>
+                            {todo}{' '}
+                            <span
+                                style={{ cursor: 'pointer' }}
+                                onClick={() => dispatch(actions.removeTodoItem(index))}
+                            >
+                                ✖
+                            </span>
+                        </li>
+                    );
                 })}
             </ul>
         </div>

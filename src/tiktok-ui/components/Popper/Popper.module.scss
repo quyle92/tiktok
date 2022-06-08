@@ -1,4 +1,8 @@
 .wrapper {
+    //add scrollbar (https://www.youtube.com/watch?v=3dit5NJVxMU&list=PL_-VfJajZj0UXjlKfBwFX73usByw3Ph9Q&index=75 10:28)
+    display: flex;
+    flex-direction: column;
+
     width: 100%;
     max-height: min((100vh - 96px) - 60px, 734px);
     min-height: 100px;

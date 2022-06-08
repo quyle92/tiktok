@@ -33,6 +33,8 @@ export default function Memo() {
 
 function slowFunction(number) {
     console.log('slowFunction');
-    for (var i = 0; i < 500000000; i++) {}
+    for (var i = 0; i < 500000000; i++) {
+        //
+    }
     return number * 2;
 }

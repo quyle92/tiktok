@@ -1,24 +1,25 @@
-import Button from "~/components/Button";
+import React from 'react';
+import Button from '~/components/Button';
 import classNames from 'classnames/bind';
 import styles from './Menu.module.scss';
-import Header from "./Header";
+import Header from './Header';
 const cx = classNames.bind(styles);
 
 function MenuItem({ data, onClick }) {
-    return (<>
-        <Button
-            text
-            className={cx('menu-item', {
-                separate: data.separate
-            })}
-            leftIcon={data.icon}
-            onClick={onClick}
-            to={data.to}
-        >
-            {data.title}
-        </Button>
-
-    </>
+    return (
+        <>
+            <Button
+                text
+                className={cx('menu-item', {
+                    separate: data.separate,
+                })}
+                leftIcon={data.icon}
+                onClick={onClick}
+                to={data.to}
+            >
+                {data.title}
+            </Button>
+        </>
     );
 }
 

@@ -1,4 +1,15 @@
-import React, { useState, useEffect, useRef, useReducer, useMemo, memo, useCallback, useContext, useImperativeHandle, forwardRef, useTransition } from "react";
+import React, {
+    useState,
+    useEffect,
+    useRef,
+    useReducer,
+    useMemo,
+    memo,
+    useCallback,
+    useImperativeHandle,
+    forwardRef,
+    useTransition,
+} from 'react';
 
 //ref: https://usehooks.com/useDebounce/
 function useDebounce(val, delay) {
@@ -10,8 +21,8 @@ function useDebounce(val, delay) {
 
         return () => {
             clearTimeout(timerId);
-        }
-    }, [val]);
+        };
+    }, [val, delay]);
 
     return debouncedVal;
 }

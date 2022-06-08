@@ -1,12 +1,12 @@
 import React from 'react';
-import GlobalStyles from '~/components/GlobalStyles'
-import { Routes, Route, Link } from "react-router-dom";
+import GlobalStyles from '~/components/GlobalStyles';
+import { Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import Following from './pages/Following';
 import Profile from './pages/Profile';
 import Search from './pages/Search';
-import { DefaultLayout, HeaderOnly } from '~/components/Layout/'
-import { publicRoutes, privateRoutes } from './routes';
+import { DefaultLayout, HeaderOnly } from '~/layout';
+import { publicRoutes, privateRoutes } from './routes/routes';
 export default function App() {
     return (
         <GlobalStyles>
@@ -26,26 +26,23 @@ export default function App() {
                 }
             </Routes> */}
             <Routes>
-                {
-                    publicRoutes.map((route, index) => {
-                        const Layout = route.layout ?? React.Fragment
-                        const Component = route.component
-                        const path = route.path
-                        return (
-                            <Route
-                                key={index}
-                                path={path} element={
-                                    <Layout>
-                                        <Component />
-                                    </Layout>
-                                }
-                            />
-                        )
-                    })
-                }
+                {publicRoutes.map((route, index) => {
+                    const Layout = route.layout ?? React.Fragment;
+                    const Component = route.component;
+                    const path = route.path;
+                    return (
+                        <Route
+                            key={index}
+                            path={path}
+                            element={
+                                <Layout>
+                                    <Component />
+                                </Layout>
+                            }
+                        />
+                    );
+                })}
             </Routes>
-
-        </GlobalStyles >
-    )
+        </GlobalStyles>
+    );
 }
-

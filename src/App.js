@@ -24,10 +24,10 @@ function App() {
             return a;
         });
         //Option 3
-        setCount(() => {
-            const a = ++count;
-            return a;
-        }); //!this will make count and setCount() have same value => not trigger re-render.
+        // setCount(() => {
+        //     const a = ++count;
+        //     return a;
+        // }); //!this will make count and setCount() have same value => not trigger re-render.
     };
 
     return (

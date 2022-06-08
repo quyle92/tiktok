@@ -31,6 +31,7 @@
 // Header
 .header {
     position: relative;
+    flex-shrink: 0; // adjust scrollbar (Ref: https://www.youtube.com/watch?v=3dit5NJVxMU&list=PL_-VfJajZj0UXjlKfBwFX73usByw3Ph9Q&index=75 11:05)
     height: 50px;
     margin-top: -8px;
 }
@@ -50,4 +51,8 @@
     font-weight: 700;
     transform: translate(-50%, -50%);
     font-family: 'Open Sans', sans-serif;
+}
+
+.menu-body {
+    overflow-y: auto;
 }

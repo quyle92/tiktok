@@ -29,12 +29,12 @@ import { default as TikTokUI } from '~/App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 //react 18
 root.render(
-  // <React.StrictMode>
-  <Router>
-    <TikTokUI />
-  </Router>
-  // </React.StrictMode>
-  ,
+    <React.StrictMode>
+        <Router>
+            <TikTokUI />
+        </Router>
+        ,
+    </React.StrictMode>,
 );
 
 // react 17

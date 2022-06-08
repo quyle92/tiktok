@@ -1,10 +1,11 @@
-import { Outlet } from "react-router-dom";
-import Header from '~/components/Layout/components/Header'
-import Sidebar from './Sidebar'
+import { Outlet } from 'react-router-dom';
+import { Header } from '~/layout/components/Header';
+import Sidebar from './Sidebar';
 import classNames from 'classnames/bind';
-import styles from './DefaultLayout.module.scss'
-const cx = classNames.bind(styles);
+import styles from './DefaultLayout.module.scss';
+import PropTypes from 'prop-types';
 
+const cx = classNames.bind(styles);
 
 function DefaultLayout({ children }) {
     return (
@@ -21,5 +22,9 @@ function DefaultLayout({ children }) {
         </div>
     );
 }
+
+DefaultLayout.propTypes = {
+    children: PropTypes.node.isRequired,
+};
 
 export default DefaultLayout;

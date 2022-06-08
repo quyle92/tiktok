@@ -36,7 +36,7 @@ function UseEffectContent() {
         } else {
             //retrieve data if it's already pushed to tabData.
             const data = _find(tabData, function (o) {
-                return o.hasOwnProperty(tabSelected);
+                return o.prototype.hasOwnProperty.call(tabSelected);
             });
             setData(data[tabSelected]);
         }
@@ -62,7 +62,6 @@ function UseEffectContent() {
     useEffect(() => {
         const myInterval = setInterval(() => {
             setCountdown(countdown - 1);
-            // setCountdown(prev => prev - 1);
             // console.log('setInterval ' + countdown)
         }, 500);
         return () => {
@@ -124,10 +123,20 @@ function UseEffectContent() {
             </ul>
 
             {/** useEffect() with preview avatar */}
-            <input type="file" onChange={handlePreviewAvatar} multiple />
+            <input
+                type="file"
+                onChange={handlePreviewAvatar}
+                multiple
+            />
             {avatars.length > 0 &&
                 avatars.map((avatar, index) => {
-                    return <img key={index} src={avatar.preview} width="10%" />;
+                    return (
+                        <img
+                            key={index}
+                            src={avatar.preview}
+                            width="10%"
+                        />
+                    );
                 })}
             <hr />
             {/** useEffect() with timer functions */}

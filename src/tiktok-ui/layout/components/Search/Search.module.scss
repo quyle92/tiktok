@@ -6,6 +6,7 @@
     background-color: rgba(22, 24, 35, 0.06);
     border-radius: var(--search-border-radius);
     border: 1.5px solid transparent;
+    font-family: var(--font-family);
 
     input {
         flex: 1;
@@ -16,9 +17,10 @@
         border: none;
         background: transparent;
         outline: none;
+        padding-right: 40px;
     }
 
-    input:not(:placeholder-shown)~.search-btn {
+    input:not(:placeholder-shown) ~ .search-btn {
         color: rgba(22, 24, 35, 0.75);
     }
 
